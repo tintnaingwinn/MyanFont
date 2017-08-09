@@ -31,6 +31,10 @@ MyanFont::zg2uni($value);
 MyanFont::checkFont($value);
 ```
 
+
+## Credits
+- [Rabbit Converter](https://github.com/Rabbit-Converter/Rabbit-PHP)
+
 ### License
 
 The MIT License (MIT). Please see [License File](https://github.com/tintnaingwinn/email-checker/blob/master/LICENSE.txt) for more information.
