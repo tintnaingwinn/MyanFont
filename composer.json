@@ -1,0 +1,21 @@
+{
+    "name": "tintnaingwin/myanfont",
+    "description": "Laravel Zawgyi <-> Unicode Package",
+    "license": "MIT",
+    "keyword": ["laravel","zawgyi","unicode","SMTP"],
+    "authors": [
+        {
+            "name": "Tint Naing Win",
+            "email": "me@tintnaingwin.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tintnaingwin\\MyanFont\\" : "src/"
+        }
+    }
+}
