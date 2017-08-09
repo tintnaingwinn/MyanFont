@@ -14,13 +14,13 @@ class MyanFont
      * @return string
      * @author TintNaingWin
      */
-    public function zg2Uni($value)
+    public static function zg2uni($value)
     {
-        $data = $this->ZgOrUni($value);
+        $data = self::ZgOrUni($value);
         
         if($data == "ZawGyi" || $data == "Myanmar") {
             $rule = json_decode(file_get_contents(__DIR__.'/json/zg2uni.json'),true);
-            return $this->replaceWithRule($rule,$value);
+            return self::replaceWithRule($rule,$value);
         }else{
             return $value;
         }
@@ -31,9 +31,9 @@ class MyanFont
      * @return string
      * @author TintNaingWin
      */
-    public function checkFont($value)
+    public static function checkFont($value)
     {
-        $font = $this->ZgOrUni($value);
+        $font = self::ZgOrUni($value);
         return $font;
     }
 

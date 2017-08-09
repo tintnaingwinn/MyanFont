@@ -18,6 +18,19 @@ To use facade you have to add this line in `config/app.php` in aliases array
 'MyanFont' => Tintnaingwin\MyanFont\Facades\MyanFont::class,
 ```
 
+### Unicode to Zawgyi
+```php
+MyanFont::uni2zg($value);
+```
+### Zawgyi to Unicode
+```php
+MyanFont::zg2uni($value);
+```
+### Check Font
+```php
+MyanFont::checkFont($value);
+```
+
 ### License
 
 The MIT License (MIT). Please see [License File](https://github.com/tintnaingwinn/email-checker/blob/master/LICENSE.txt) for more information.
