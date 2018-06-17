@@ -1,21 +1,34 @@
 {
-    "name": "tintnaingwin/myanfont",
-    "description": "Laravel Zawgyi <-> Unicode Package",
-    "license": "MIT",
-    "keyword": ["laravel","zawgyi","unicode","SMTP"],
-    "authors": [
-        {
-            "name": "Tint Naing Win",
-            "email": "me@tintnaingwin.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "illuminate/support": "^5.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Tintnaingwin\\MyanFont\\" : "src/"
-        }
+  "name": "tintnaingwin/myanfont",
+  "description": "Laravel Zawgyi <-> Unicode Package",
+  "license": "MIT",
+  "keyword": [
+    "laravel",
+    "zawgyi",
+    "unicode"
+  ],
+  "authors": [
+    {
+      "name": "Tint Naing Win",
+      "email": "me@tintnaingwin.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Tintnaingwin\\MyanFont\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "test/DataTestHelper.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "aliases": {
+        "MyanFont": "Tintnaingwin\\MyanFont\\Facades\\MyanFont"
+      }
+    }
+  }
 }
