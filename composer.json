@@ -5,8 +5,7 @@
   "keyword": [
     "laravel",
     "zawgyi",
-    "unicode",
-    "SMTP"
+    "unicode"
   ],
   "authors": [
     {
@@ -16,17 +15,18 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "illuminate/support": "^5.0",
-    "phpunit/phpunit": "*"
+    "illuminate/support": "^5.0"
   },
   "autoload": {
     "psr-4": {
       "Tintnaingwin\\MyanFont\\": "src/"
     }
   },
-  "autoload-dev": {
-    "classmap": [
-      "test/DataTestHelper.php"
-    ]
+  "extra": {
+    "laravel": {
+      "aliases": {
+        "MyanFont": "Tintnaingwin\\MyanFont\\Facades\\MyanFont"
+      }
+    }
   }
 }
