@@ -4,7 +4,7 @@ namespace test;
 
 use Tintnaingwin\MyanFont\MyanFont;
 
-class Zg2uniTest extends \PHPUnit\Framework\TestCase
+class MyanFontTest extends \PHPUnit\Framework\TestCase
 {
     use DataTestHelper;
 
