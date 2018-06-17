@@ -19,6 +19,11 @@
       "Tintnaingwin\\MyanFont\\": "src/"
     }
   },
+  "autoload-dev": {
+    "classmap": [
+      "test/DataTestHelper.php"
+    ]
+  },
   "extra": {
     "laravel": {
       "aliases": {
