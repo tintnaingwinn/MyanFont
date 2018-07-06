@@ -16,8 +16,12 @@ class MyanFont
      * @throws \Exception
      * @author TintNaingWin
      */
-    public static function zg2uni(string $zawgyi_input): string
+    public static function zg2uni($zawgyi_input)
     {
+        if (is_null($zawgyi_input)) {
+            $zawgyi_input = "";
+        }
+
         $font = self::ZgOrUni($zawgyi_input);
 
         if($font == "ZawGyi") {
@@ -35,8 +39,12 @@ class MyanFont
      * @throws \Exception
      * @author TintNaingWin
      */
-    public static function uni2zg(string $unicode_input): string
+    public static function uni2zg($unicode_input)
     {
+        if (is_null($unicode_input)) {
+            $unicode_input = "";
+        }
+
         $font = self::ZgOrUni($unicode_input);
 
         if($font == "Unicode") {
@@ -52,8 +60,12 @@ class MyanFont
      * @author TintNaingWin
      * @throws \Exception
      */
-    public static function checkFont(string $value): string
+    public static function checkFont($value)
     {
+        if (is_null($value)) {
+            $value = "";
+        }
+
         $font = self::ZgOrUni($value);
         return $font;
     }
@@ -67,7 +79,7 @@ class MyanFont
      * @throws \Exception
      * @author TintNaingWin
      */
-    protected static function ZgOrUni(string $input): string
+    protected static function ZgOrUni($input)
     {
         $input_length = strlen($input);
 
