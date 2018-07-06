@@ -16,7 +16,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     /**
      * @throws \Exception
      *
-     * @author Tint Naing Win <me@tintnainwin.com>
      */
     public function test_check_font()
     {
@@ -33,7 +32,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     /**
      * @throws \Exception
      *
-     * @author Tint Naing Win <me@tintnainwin.com>
      */
     public function test_convert_zg2uni()
     {
@@ -45,7 +43,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     /**
      * @throws \Exception
      *
-     * @author Tint Naing Win <me@tintnainwin.com>
      */
     public function test_convert_uni2zg()
     {
@@ -53,4 +50,24 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
         $font = MyanFont::checkFont($convert);
         $this->assertEquals($font, self::ZAWGYI);
     }
+
+    /**
+     * @throws \Exception
+     *
+     */
+    public function test_null_convert()
+    {
+        $zg = MyanFont::uni2zg(null);
+        print($zg);
+        $this->assertNotNull($zg);
+
+        $uni = MyanFont::zg2uni(null);
+        print($uni);
+        $this->assertNotNull($uni);
+
+        $font = MyanFont::checkFont(null);
+        print($font);
+        $this->assertNotNull($font);
+    }
+
 }
