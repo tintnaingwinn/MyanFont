@@ -20,13 +20,23 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     public function test_check_font()
     {
         $font = MyanFont::checkFont($this->zawgyiData());
-        print ($font);
-
         $this->assertEquals($font, self::ZAWGYI);
 
         $font = MyanFont::checkFont($this->unicodeData());
-        print ($font);
         $this->assertEquals($font, self::UNICODE);
+    }
+
+    /**
+     * @throws \Exception
+     *
+     */
+    public function test_english_text()
+    {
+        $font = MyanFont::checkFont($this->englishUnicodeData());
+        $this->assertEquals($font, self::UNICODE);
+
+        $font = MyanFont::checkFont($this->englishZawgyiData());
+        $this->assertEquals($font, self::ZAWGYI);
     }
 
     /**
@@ -58,16 +68,18 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     public function test_null_convert()
     {
         $zg = MyanFont::uni2zg(null);
-        print($zg);
+        print ("$zg\n");
         $this->assertNotNull($zg);
 
         $uni = MyanFont::zg2uni(null);
-        print($uni);
+        print("$uni\n");
         $this->assertNotNull($uni);
 
         $font = MyanFont::checkFont(null);
-        print($font);
+        print("$font\n");
         $this->assertNotNull($font);
     }
 
 }
+
+?>
