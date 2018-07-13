@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "googlei18n/myanmar-tools": "^0.1.1"
+    "googlei18n/myanmar-tools": "^1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

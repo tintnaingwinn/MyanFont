@@ -9,64 +9,64 @@ use Rabbit;
 class MyanFont
 {
     /**
-     * Convert zawgyi input to unicode.
+     * Convert zawgyi text to unicode.
      *
-     * @param $zawgyi_input
+     * @param $zawgyi_text
      * @return string
      * @throws \Exception
      * @author TintNaingWin
      */
-    public static function zg2uni($zawgyi_input)
+    public static function zg2uni($zawgyi_text)
     {
-        if (is_null($zawgyi_input)) {
-            $zawgyi_input = "";
+        if (is_null($zawgyi_text)) {
+            $zawgyi_text = '';
         }
 
-        $font = self::ZgOrUni($zawgyi_input);
+        $font = self::ZgOrUni($zawgyi_text);
 
-        if($font == "ZawGyi") {
-            return Rabbit::zg2uni($zawgyi_input);
-        }else {
-            return $zawgyi_input;
+        if($font == 'ZawGyi') {
+            return Rabbit::zg2uni($zawgyi_text);
         }
+
+        return $zawgyi_text;
     }
 
     /**
-     * Convert unicode input to zawgyi.
+     * Convert unicode text to zawgyi.
      *
-     * @param $unicode_input
+     * @param $unicode_text
      * @return string
      * @throws \Exception
      * @author TintNaingWin
      */
-    public static function uni2zg($unicode_input)
+    public static function uni2zg($unicode_text)
     {
-        if (is_null($unicode_input)) {
-            $unicode_input = "";
+        if (is_null($unicode_text)) {
+            $unicode_text = '';
         }
 
-        $font = self::ZgOrUni($unicode_input);
+        $font = self::ZgOrUni($unicode_text);
 
-        if($font == "Unicode") {
-            return Rabbit::uni2zg($unicode_input);
-        }else{
-            return $unicode_input;
+        if($font == 'Unicode') {
+            return Rabbit::uni2zg($unicode_text);
         }
+
+        return $unicode_text;
     }
 
     /**
-     * @param $value
+     * @param $text
      * @return string
      * @author TintNaingWin
      * @throws \Exception
      */
-    public static function checkFont($value)
+    public static function checkFont($text)
     {
-        if (is_null($value)) {
-            $value = "";
+        if (is_null($text)) {
+            $text = '';
         }
 
-        $font = self::ZgOrUni($value);
+        $font = self::ZgOrUni($text);
         return $font;
     }
 
@@ -74,14 +74,14 @@ class MyanFont
      * Score is 1.0 (The input is definitely Zawgyi)
      * Score is 0.0 (The input is definitely Unicode).
      *
-     * @param $input
+     * @param $text
      * @return string
      * @throws \Exception
      * @author TintNaingWin
      */
-    protected static function ZgOrUni($input)
+    protected static function ZgOrUni($text)
     {
-        $input_length = strlen($input);
+        $input_length = strlen($text);
 
         $zawgyi_score = $input_length < 15 ? 0.999 : 0.995;
         $unicode_score = $input_length < 15 ? 0.001 : 0.005;
@@ -89,7 +89,7 @@ class MyanFont
         $detector = new ZawgyiDetector();
 
         try {
-            $score = $detector->getZawgyiProbability($input);
+            $score = $detector->getZawgyiProbability($text);
         } catch (\Exception $exception) {
             return $exception;
         }
