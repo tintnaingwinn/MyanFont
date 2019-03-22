@@ -9,8 +9,8 @@ class TestCase extends Orchestra
     use DataTestHelper;
 
     const
-        ZAWGYI = 'zawgyi',
-        UNICODE = 'unicode';
+        ZAWGYI = 'zawgyi';
+    const UNICODE = 'unicode';
 
     public function setUp(): void
     {
@@ -29,19 +29,15 @@ class TestCase extends Orchestra
         ];
     }
 
-
     /**
      * @param \Illuminate\Foundation\Application $app
      */
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('myanfont.myanmartools', [
-            'enabled' => false,
-            'zawgyi_score' => 0.95,
+            'enabled'       => false,
+            'zawgyi_score'  => 0.95,
             'unicode_score' => 0.05,
         ]);
     }
-
 }
-
-?>

@@ -1,12 +1,16 @@
 <?php
+
 use Tintnaingwin\MyanFont\MyanFont;
 
-if (! function_exists('zg2uni')) {
+if (!function_exists('zg2uni')) {
     /**
      * Convert zawgyi text to unicode.
+     *
      * @param string $text
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
      *
      * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
@@ -16,12 +20,15 @@ if (! function_exists('zg2uni')) {
     }
 }
 
-if (! function_exists('uni2zg')) {
+if (!function_exists('uni2zg')) {
     /**
      * Convert unicode text to zawgyi.
+     *
      * @param string $text
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
      *
      * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
@@ -31,12 +38,15 @@ if (! function_exists('uni2zg')) {
     }
 }
 
-if (! function_exists('isZgOrUni')) {
+if (!function_exists('isZgOrUni')) {
     /**
-     * Check Zawgyi Font or Unicode Font
+     * Check Zawgyi Font or Unicode Font.
+     *
      * @param string $text
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
      *
      * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
