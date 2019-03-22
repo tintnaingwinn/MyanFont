@@ -1,7 +1,7 @@
 {
   "name": "tintnaingwin/myanfont",
   "description": "Laravel Zawgyi <=> Unicode Package",
-  "keyword": [
+  "keywords": [
     "laravel",
     "zawgyi",
     "unicode",
@@ -12,34 +12,42 @@
   "authors": [
     {
       "name": "Tint Naing Win",
-      "email": "me@tintnaingwin.com"
+      "email": "tnwdeveloper@gmail.com"
     }
   ],
   "require": {
-    "php": ">=7.0",
-    "googlei18n/myanmar-tools": "^1.1"
+    "php": ">=7.1.0",
+    "googlei18n/myanmar-tools": "^1.1",
+    "illuminate/contracts": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+    "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+    "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "orchestra/testbench": "^3.7",
+    "phpunit/phpunit": "^7.0"
   },
   "autoload": {
     "psr-4": {
       "Tintnaingwin\\MyanFont\\": "src/"
     },
     "files": [
-      "src/Rabbit.php"
+      "src/Rabbit.php",
+      "src/helpers.php"
     ]
   },
   "autoload-dev": {
-    "classmap": [
-      "test/DataTestHelper.php"
-    ]
+    "psr-4": {
+      "Tintnaingwin\\MyanFont\\Tests\\": "tests"
+    }
   },
   "config": {
     "sort-packages": true
   },
   "extra": {
     "laravel": {
+      "providers": [
+        "Tintnaingwin\\MyanFont\\MyanFontServiceProvider"
+      ],
       "aliases": {
         "MyanFont": "Tintnaingwin\\MyanFont\\Facades\\MyanFont"
       }
