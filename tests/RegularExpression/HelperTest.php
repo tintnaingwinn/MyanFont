@@ -1,17 +1,25 @@
 <?php
 
-namespace test;
+namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
-use Tintnaingwin\MyanFont\MyanFont;
+use Tintnaingwin\MyanFont\Tests\TestCase;
 
-class MyanFontTest extends \PHPUnit\Framework\TestCase
+class HelperTest extends TestCase
 {
-    use DataTestHelper;
 
-    const
-        ZAWGYI = 'ZawGyi',
-        UNICODE = 'Unicode',
-        MYANMAR = 'Myanmar';
+
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('myanfont.myanmartools', [
+            'enabled' => false,
+            'zawgyi_score' => 0.95,
+            'unicode_score' => 0.05,
+        ]);
+    }
+
 
     /**
      * @throws \Exception
@@ -19,10 +27,10 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
      */
     public function test_check_font()
     {
-        $font = MyanFont::checkFont($this->zawgyiData());
+        $font = isZgOrUni($this->zawgyiData());
         $this->assertEquals($font, self::ZAWGYI);
 
-        $font = MyanFont::checkFont($this->unicodeData());
+        $font = isZgOrUni($this->unicodeData());
         $this->assertEquals($font, self::UNICODE);
     }
 
@@ -32,10 +40,10 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
      */
     public function test_english_text()
     {
-        $font = MyanFont::checkFont($this->englishUnicodeData());
+        $font = isZgOrUni($this->englishUnicodeData());
         $this->assertEquals($font, self::UNICODE);
 
-        $font = MyanFont::checkFont($this->englishZawgyiData());
+        $font = isZgOrUni($this->englishZawgyiData());
         $this->assertEquals($font, self::ZAWGYI);
     }
 
@@ -45,8 +53,8 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
      */
     public function test_convert_zg2uni()
     {
-        $convert = MyanFont::zg2uni($this->zawgyiData());
-        $font = MyanFont::checkFont($convert);
+        $convert = zg2uni($this->zawgyiData());
+        $font = isZgOrUni($convert);
         $this->assertEquals($font, self::UNICODE);
     }
 
@@ -56,8 +64,8 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
      */
     public function test_convert_uni2zg()
     {
-        $convert = MyanFont::uni2zg($this->unicodeData());
-        $font = MyanFont::checkFont($convert);
+        $convert = uni2zg($this->unicodeData());
+        $font = isZgOrUni($convert);
         $this->assertEquals($font, self::ZAWGYI);
     }
 
@@ -67,15 +75,15 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
      */
     public function test_null_convert()
     {
-        $zg = MyanFont::uni2zg(null);
+        $zg = uni2zg(null);
         print ("$zg\n");
         $this->assertNotNull($zg);
 
-        $uni = MyanFont::zg2uni(null);
+        $uni = zg2uni(null);
         print("$uni\n");
         $this->assertNotNull($uni);
 
-        $font = MyanFont::checkFont(null);
+        $font = isZgOrUni(null);
         print("$font\n");
         $this->assertNotNull($font);
     }

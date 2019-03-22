@@ -1,6 +1,6 @@
 <?php
 
-namespace test;
+namespace Tintnaingwin\MyanFont\Tests;
 
 trait DataTestHelper
 {
@@ -19,6 +19,6 @@ trait DataTestHelper
     }
 
     protected function englishUnicodeData() {
-        return 'English 00 \n\n Cashew အာယု genius ဝဍ္ n prescription ဇလွန် price pledge of almond trees and read the line. ';
+        return 'English 00 \n\n Cashew အာယု genius ဝဍ် n prescription ဇလွန် price pledge of almond trees and read the line.';
     }
 }
