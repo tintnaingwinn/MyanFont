@@ -6,24 +6,20 @@ use Tintnaingwin\MyanFont\Tests\TestCase;
 
 class HelperTest extends TestCase
 {
-
-
     /**
      * @param \Illuminate\Foundation\Application $app
      */
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('myanfont.myanmartools', [
-            'enabled' => true,
-            'zawgyi_score' => 0.95,
+            'enabled'       => true,
+            'zawgyi_score'  => 0.95,
             'unicode_score' => 0.05,
         ]);
     }
 
-
     /**
      * @throws \Exception
-     *
      */
     public function test_check_font()
     {
@@ -36,7 +32,6 @@ class HelperTest extends TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_english_text()
     {
@@ -49,7 +44,6 @@ class HelperTest extends TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_convert_zg2uni()
     {
@@ -60,7 +54,6 @@ class HelperTest extends TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_convert_uni2zg()
     {
@@ -71,23 +64,19 @@ class HelperTest extends TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_null_convert()
     {
         $zg = uni2zg(null);
-        print ("$zg\n");
+        echo "$zg\n";
         $this->assertNotNull($zg);
 
         $uni = zg2uni(null);
-        print("$uni\n");
+        echo "$uni\n";
         $this->assertNotNull($uni);
 
         $font = isZgOrUni(null);
-        print("$font\n");
+        echo "$font\n";
         $this->assertNotNull($font);
     }
-
 }
-
-?>
