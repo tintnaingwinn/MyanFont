@@ -2,9 +2,9 @@
 
 namespace Tintnaingwin\MyanFont;
 
+use Rabbit;
 use Exception;
 use Googlei18n\MyanmarTools\ZawgyiDetector;
-use Rabbit;
 
 class MyanFont
 {
