@@ -3,26 +3,16 @@
 namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
 use Tintnaingwin\MyanFont\MyanFont;
-use Tintnaingwin\MyanFont\Tests\TestCase;
+use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
 
-class MyanFontTest extends TestCase
+class MyanFontTest extends AbstractTestCase
 {
-    /**
-     * @param \Illuminate\Foundation\Application $app
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('myanfont.myanmartools', [
-            'enabled'       => false,
-            'zawgyi_score'  => 0.95,
-            'unicode_score' => 0.05,
-        ]);
-    }
 
     /**
+     * @test
      * @throws \Exception
      */
-    public function test_check_font()
+    public function check_font()
     {
         $font = MyanFont::isZgOrUni($this->zawgyiData());
         $this->assertEquals($font, self::ZAWGYI);
@@ -32,9 +22,10 @@ class MyanFontTest extends TestCase
     }
 
     /**
+     * @test
      * @throws \Exception
      */
-    public function test_english_text()
+    public function english_text()
     {
         $font = MyanFont::isZgOrUni($this->englishUnicodeData());
         $this->assertEquals($font, self::UNICODE);
@@ -44,9 +35,10 @@ class MyanFontTest extends TestCase
     }
 
     /**
+     * @test
      * @throws \Exception
      */
-    public function test_convert_zg2uni()
+    public function convert_zg2uni()
     {
         $convert = MyanFont::zg2uni($this->zawgyiData());
         $font = MyanFont::isZgOrUni($convert);
@@ -54,9 +46,10 @@ class MyanFontTest extends TestCase
     }
 
     /**
+     * @test
      * @throws \Exception
      */
-    public function test_convert_uni2zg()
+    public function convert_uni2zg()
     {
         $convert = MyanFont::uni2zg($this->unicodeData());
         $font = MyanFont::isZgOrUni($convert);
@@ -64,20 +57,31 @@ class MyanFontTest extends TestCase
     }
 
     /**
+     * @test
      * @throws \Exception
      */
-    public function test_null_convert()
+    public function null_convert()
     {
         $zg = MyanFont::uni2zg(null);
-        echo "$zg\n";
         $this->assertNotNull($zg);
 
         $uni = MyanFont::zg2uni(null);
-        echo "$uni\n";
         $this->assertNotNull($uni);
 
         $font = MyanFont::isZgOrUni(null);
-        echo "$font\n";
         $this->assertNotNull($font);
+    }
+
+    /**
+     * @test
+     * @throws \Exception
+     */
+    public function convert_same_font()
+    {
+        $zg = MyanFont::uni2zg($this->zawgyiData());
+        $this->assertSame($this->zawgyiData(), $zg);
+
+        $uni = MyanFont::zg2uni($this->unicodeData());
+        $this->assertSame($this->unicodeData(), $uni);
     }
 }
