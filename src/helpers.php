@@ -2,7 +2,7 @@
 
 use Tintnaingwin\MyanFont\MyanFont;
 
-if (!function_exists('zg2uni')) {
+if (! function_exists('zg2uni')) {
     /**
      * Convert zawgyi text to unicode.
      *
@@ -20,7 +20,7 @@ if (!function_exists('zg2uni')) {
     }
 }
 
-if (!function_exists('uni2zg')) {
+if (! function_exists('uni2zg')) {
     /**
      * Convert unicode text to zawgyi.
      *
@@ -38,7 +38,7 @@ if (!function_exists('uni2zg')) {
     }
 }
 
-if (!function_exists('isZgOrUni')) {
+if (! function_exists('isZgOrUni')) {
     /**
      * Check Zawgyi Font or Unicode Font.
      *
