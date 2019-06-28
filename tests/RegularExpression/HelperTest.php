@@ -2,23 +2,13 @@
 
 namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
-use Tintnaingwin\MyanFont\Tests\TestCase;
+use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
 
-class HelperTest extends TestCase
+class HelperTest extends AbstractTestCase
 {
-    /**
-     * @param \Illuminate\Foundation\Application $app
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('myanfont.myanmartools', [
-            'enabled'       => false,
-            'zawgyi_score'  => 0.95,
-            'unicode_score' => 0.05,
-        ]);
-    }
 
     /**
+     * @test
      * @throws \Exception
      */
     public function test_check_font()
@@ -31,9 +21,10 @@ class HelperTest extends TestCase
     }
 
     /**
+     * @test
      * @throws \Exception
      */
-    public function test_english_text()
+    public function english_text()
     {
         $font = isZgOrUni($this->englishUnicodeData());
         $this->assertEquals($font, self::UNICODE);
@@ -68,15 +59,12 @@ class HelperTest extends TestCase
     public function test_null_convert()
     {
         $zg = uni2zg(null);
-        echo "$zg\n";
         $this->assertNotNull($zg);
 
         $uni = zg2uni(null);
-        echo "$uni\n";
         $this->assertNotNull($uni);
 
         $font = isZgOrUni(null);
-        echo "$font\n";
         $this->assertNotNull($font);
     }
 }

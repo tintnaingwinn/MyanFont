@@ -23,4 +23,9 @@ trait DataTestHelper
     {
         return 'English 00 \n\n Cashew အာယု genius ဝဍ် n prescription ဇလွန် price pledge of almond trees and read the line.';
     }
+
+    protected function englishData()
+    {
+        return 'Difficulty on insensible reasonable in. From as went he they.';
+    }
 }

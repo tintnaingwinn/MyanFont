@@ -14,7 +14,7 @@ if (!function_exists('zg2uni')) {
      *
      * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
-    function zg2uni($text, $myanmar_tools = null)
+    function zg2uni($text = '', $myanmar_tools = null)
     {
         return MyanFont::zg2uni($text, $myanmar_tools);
     }
@@ -32,7 +32,7 @@ if (!function_exists('uni2zg')) {
      *
      * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
-    function uni2zg($text, $myanmar_tools = null)
+    function uni2zg($text = '', $myanmar_tools = null)
     {
         return MyanFont::uni2zg($text, $myanmar_tools);
     }
@@ -50,7 +50,7 @@ if (!function_exists('isZgOrUni')) {
      *
      * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
-    function isZgOrUni($text, $myanmartools = null)
+    function isZgOrUni($text = '', $myanmartools = null)
     {
         return MyanFont::isZgOrUni($text, $myanmartools);
     }
