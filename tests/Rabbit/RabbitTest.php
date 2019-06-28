@@ -2,8 +2,8 @@
 
 namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
-use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
 use Rabbit;
+use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
 
 class RabbitTest extends AbstractTestCase
 {
@@ -29,15 +29,14 @@ class RabbitTest extends AbstractTestCase
      * @test
      * @throws \Exception
      */
-    public function parseline() {
+    public function parseline()
+    {
         $string = $this->unicodeData();
         $object = new Rabbit();
-        $method = $this->getPrivateMethod( 'Rabbit', 'parseline' );
+        $method = $this->getPrivateMethod('Rabbit', 'parseline');
 
-        $result = $method->invokeArgs( $object, array( $string ) );
+        $result = $method->invokeArgs($object, [$string]);
 
         $this->assertFalse(strpos($result, chr(13)));
-
     }
-
 }

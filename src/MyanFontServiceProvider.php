@@ -32,7 +32,7 @@ class MyanFontServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'Tintnaingwin\MyanFont\MyanFont'
+            'Tintnaingwin\MyanFont\MyanFont',
         ];
     }
 }
