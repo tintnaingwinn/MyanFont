@@ -1,7 +1,21 @@
-Laravel MyanFont
-=================
+<h1 align="center">Laravel MyanFont</h1>
 
-[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/tintnaingwin/myanfont.svg)](https://packagist.org/packages/tintnaingwin/myanfont)
+[![Laravel 5.x](https://img.shields.io/badge/Laravel-5.x-red.svg)](http://laravel.com)
+[![Total Downloads](https://poser.pugx.org/tintnaingwin/myanfont/downloads)](https://packagist.org/packages/tintnaingwin/myanfont)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://packagist.org/packages/tintnaingwin/myanfont)
+## Requirements
+
+#### version-2.*
+- [PHP >= 7.1.3](http://php.net/)
+- [Laravel 5.6|5.7|5.8](https://github.com/laravel/framework)
+
+#### version-1.*
+- [PHP >= 7.0](http://php.net/)
+- [Laravel 5.5|5.6|5.7|5.8](https://github.com/laravel/framework)
+
+#### version-0.*
+- [PHP >= 5.5.6](http://php.net/)
 
 ## Installation
 You can install this package via composer using this command:
@@ -46,7 +60,7 @@ return [
 ```
 
 ## Usage
-### Using the facade
+#### Using the facade
 
 You can choose to detect the font [Myanmar Toots](https://github.com/googlei18n/myanmar-tools/tree/master/clients/php) or Regular Expression.
  By default, using Regular Expression. You can change at config file.
