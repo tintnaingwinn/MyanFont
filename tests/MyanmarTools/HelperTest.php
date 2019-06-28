@@ -6,7 +6,6 @@ use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
 
 class HelperTest extends AbstractTestCase
 {
-
     /**
      * @test
      * @throws \Exception
