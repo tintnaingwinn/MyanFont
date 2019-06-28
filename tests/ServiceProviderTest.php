@@ -1,9 +1,9 @@
 <?php
 
 namespace Tintnaingwin\MyanFont\Tests;
-;
-use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
+
 use Tintnaingwin\MyanFont\MyanFont;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 class ServiceProviderTest extends AbstractTestCase
 {

@@ -2,9 +2,9 @@
 
 namespace Tintnaingwin\MyanFont\Tests;
 
-use GrahamCampbell\TestBench\AbstractPackageTestCase;
 use ReflectionClass;
 use Tintnaingwin\MyanFont\MyanFontServiceProvider;
+use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 abstract class AbstractTestCase extends AbstractPackageTestCase
 {
@@ -14,10 +14,12 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
         ZAWGYI = 'zawgyi';
     const UNICODE = 'unicode';
 
-    public function getPrivateMethod( $className, $methodName ) {
-        $reflector = new ReflectionClass( $className );
-        $method = $reflector->getMethod( $methodName );
-        $method->setAccessible( true );
+    public function getPrivateMethod($className, $methodName)
+    {
+        $reflector = new ReflectionClass($className);
+        $method = $reflector->getMethod($methodName);
+        $method->setAccessible(true);
+
         return $method;
     }
 

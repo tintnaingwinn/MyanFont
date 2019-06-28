@@ -2,15 +2,13 @@
 
 namespace Tintnaingwin\MyanFont\Tests\Facades;
 
-use Tintnaingwin\MyanFont\Facades\MyanFont as Facade;
-use GrahamCampbell\TestBenchCore\FacadeTrait;
 use Tintnaingwin\MyanFont\MyanFont;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
-
+use Tintnaingwin\MyanFont\Facades\MyanFont as Facade;
 
 class MyanFontTest extends AbstractTestCase
 {
-
     use FacadeTrait;
 
     /**
@@ -42,6 +40,4 @@ class MyanFontTest extends AbstractTestCase
     {
         return MyanFont::class;
     }
-
-
 }

@@ -7,7 +7,6 @@ use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
 
 class MyanFontTest extends AbstractTestCase
 {
-
     /**
      * @test
      * @throws \Exception
