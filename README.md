@@ -1,6 +1,7 @@
 <h1 align="center">Laravel MyanFont</h1>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tintnaingwin/myanfont.svg)](https://packagist.org/packages/tintnaingwin/myanfont)
+[![Laravel 6.x](https://img.shields.io/badge/Laravel-6.x-red.svg)](http://laravel.com)
 [![Laravel 5.x](https://img.shields.io/badge/Laravel-5.x-red.svg)](http://laravel.com)
 [![Total Downloads](https://poser.pugx.org/tintnaingwin/myanfont/downloads)](https://packagist.org/packages/tintnaingwin/myanfont)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://packagist.org/packages/tintnaingwin/myanfont)
@@ -8,7 +9,7 @@
 
 #### version-2.*
 - [PHP >= 7.1.3](http://php.net/)
-- [Laravel 5.6|5.7|5.8](https://github.com/laravel/framework)
+- [Laravel 5.6|5.7|5.8|6.0](https://github.com/laravel/framework)
 
 #### version-1.*
 - [PHP >= 7.0](http://php.net/)
