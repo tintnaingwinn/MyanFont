@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tintnaingwin\MyanFont;
 
 use Googlei18n\MyanmarTools\ZawgyiDetector;
@@ -12,8 +11,11 @@ class MyanFont
      * Convert zawgyi text to unicode.
      *
      * @param $zawgyi_text
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
+     *
      * @author TintNaingWin
      */
     public static function zg2uni($zawgyi_text)
@@ -24,7 +26,7 @@ class MyanFont
 
         $font = self::ZgOrUni($zawgyi_text);
 
-        if($font == 'ZawGyi') {
+        if ($font == 'ZawGyi') {
             return Rabbit::zg2uni($zawgyi_text);
         }
 
@@ -35,8 +37,11 @@ class MyanFont
      * Convert unicode text to zawgyi.
      *
      * @param $unicode_text
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
+     *
      * @author TintNaingWin
      */
     public static function uni2zg($unicode_text)
@@ -47,7 +52,7 @@ class MyanFont
 
         $font = self::ZgOrUni($unicode_text);
 
-        if($font == 'Unicode') {
+        if ($font == 'Unicode') {
             return Rabbit::uni2zg($unicode_text);
         }
 
@@ -56,9 +61,12 @@ class MyanFont
 
     /**
      * @param $text
-     * @return string
-     * @author TintNaingWin
+     *
      * @throws \Exception
+     *
+     * @return string
+     *
+     * @author TintNaingWin
      */
     public static function checkFont($text)
     {
@@ -67,6 +75,7 @@ class MyanFont
         }
 
         $font = self::ZgOrUni($text);
+
         return $font;
     }
 
@@ -75,8 +84,11 @@ class MyanFont
      * Score is 0.0 (The input is definitely Unicode).
      *
      * @param $text
-     * @return string
+     *
      * @throws \Exception
+     *
+     * @return string
+     *
      * @author TintNaingWin
      */
     protected static function ZgOrUni($text)
@@ -94,14 +106,14 @@ class MyanFont
             return $exception;
         }
 
-        if($score < $unicode_score) {
-            return "Unicode";
+        if ($score < $unicode_score) {
+            return 'Unicode';
         } elseif ($score > $zawgyi_score) {
-            return "ZawGyi";
-        }elseif ($score === INF) {
-            return "NotMyanmar";
-        }else {
-            return "Unicode";
+            return 'ZawGyi';
+        } elseif ($score === INF) {
+            return 'NotMyanmar';
+        } else {
+            return 'Unicode';
         }
     }
 }

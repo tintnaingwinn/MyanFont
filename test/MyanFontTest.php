@@ -9,13 +9,12 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     use DataTestHelper;
 
     const
-        ZAWGYI = 'ZawGyi',
-        UNICODE = 'Unicode',
-        MYANMAR = 'Myanmar';
+        ZAWGYI = 'ZawGyi';
+    const UNICODE = 'Unicode';
+    const MYANMAR = 'Myanmar';
 
     /**
      * @throws \Exception
-     *
      */
     public function test_check_font()
     {
@@ -28,7 +27,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_english_text()
     {
@@ -41,7 +39,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_convert_zg2uni()
     {
@@ -52,7 +49,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_convert_uni2zg()
     {
@@ -63,7 +59,6 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @throws \Exception
-     *
      */
     public function test_null_convert()
     {
@@ -76,7 +71,4 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
         $font = MyanFont::checkFont(null);
         $this->assertNotNull($font);
     }
-
 }
-
-?>
