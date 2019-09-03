@@ -1,9 +1,11 @@
 <?php
+
 namespace Tintnaingwin\MyanFont\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class MyanFont extends Facade{
+class MyanFont extends Facade
+{
     /**
      * Get the registered name of the component.
      *
