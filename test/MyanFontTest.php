@@ -68,15 +68,12 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     public function test_null_convert()
     {
         $zg = MyanFont::uni2zg(null);
-        print ("$zg\n");
         $this->assertNotNull($zg);
 
         $uni = MyanFont::zg2uni(null);
-        print("$uni\n");
         $this->assertNotNull($uni);
 
         $font = MyanFont::checkFont(null);
-        print("$font\n");
         $this->assertNotNull($font);
     }
 

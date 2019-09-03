@@ -1,26 +1,28 @@
 {
   "name": "tintnaingwin/myanfont",
   "description": "Laravel Zawgyi <=> Unicode Package",
-  "keyword": [
+  "keywords": [
     "laravel",
     "zawgyi",
     "unicode",
-    "myanmar-font"
+    "myanmar-font",
+    "myanfont"
   ],
   "homepage": "https://github.com/tintnaingwinn/MyanFont",
   "license": "MIT",
   "authors": [
     {
       "name": "Tint Naing Win",
-      "email": "me@tintnaingwin.com"
+      "email": "tnwdeveloper@gmail.com"
     }
   ],
   "require": {
     "php": ">=7.0",
-    "googlei18n/myanmar-tools": "^1.1"
+    "googlei18n/myanmar-tools": "^1.1",
+    "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "^7.5"
   },
   "autoload": {
     "psr-4": {

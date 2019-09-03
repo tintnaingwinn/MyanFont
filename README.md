@@ -1,7 +1,9 @@
-Laravel MyanFont
-=================
+<h1 align="center">Laravel MyanFont</h1>
 
-[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
+[![Laravel 6.x](https://img.shields.io/badge/Laravel-6.x-red.svg)](http://laravel.com)
+[![Laravel 5.x](https://img.shields.io/badge/Laravel-5.x-red.svg)](http://laravel.com)
+[![Total Downloads](https://poser.pugx.org/tintnaingwin/myanfont/downloads)](https://packagist.org/packages/tintnaingwin/myanfont)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://packagist.org/packages/tintnaingwin/myanfont)
 
 ### Quick Installation
 
