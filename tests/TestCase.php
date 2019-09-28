@@ -2,9 +2,9 @@
 
 namespace Tintnaingwin\MyanFont\Tests;
 
+use Orchestra\Testbench\TestCase as Orchestra;
 use ReflectionClass;
 use ReflectionException;
-use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
