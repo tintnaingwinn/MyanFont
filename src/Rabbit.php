@@ -53,7 +53,7 @@ class Rabbit
     /**
      * Replace the string with rules.
      *
-     * @param array $rule
+     * @param array  $rule
      * @param string $output
      *
      * @return string

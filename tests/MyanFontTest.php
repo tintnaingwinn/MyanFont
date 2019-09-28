@@ -56,5 +56,4 @@ class MyanFontTest extends TestCase
         $font = MyanFont::checkFont(null);
         $this->assertNotNull($font);
     }
-
 }
