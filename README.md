@@ -1,6 +1,6 @@
 Laravel MyanFont
 =================
-[![Laravel 5.4](https://img.shields.io/badge/Laravel-5.4-orange.svg?style=flat-square)](http://laravel.com)
+[![Laravel 5.0](https://img.shields.io/badge/Laravel-5.0-orange.svg?style=flat-square)](http://laravel.com)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
 
@@ -29,6 +29,7 @@ MyanFont::zg2uni($value);
 ### Check Font
 ```php
 MyanFont::checkFont($value);
+MyanFont::isZgOrUni($value);
 ```
 
 

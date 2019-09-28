@@ -1,2 +1,9 @@
 vendor/
 .idea/
+/.vagrant
+composer.phar
+composer.lock
+.DS_Stor
+.phpunit.result.cache
+build
+html

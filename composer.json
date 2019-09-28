@@ -1,21 +1,44 @@
 {
     "name": "tintnaingwin/myanfont",
-    "description": "Laravel Zawgyi <-> Unicode Package",
-    "license": "MIT",
-    "keyword": ["laravel","zawgyi","unicode","SMTP"],
+    "description": "Laravel Zawgyi <=> Unicode Package",
+    "keywords": [
+        "laravel",
+        "zawgyi",
+        "unicode",
+        "myanmar-font",
+        "myanfont"
+    ],
     "authors": [
         {
             "name": "Tint Naing Win",
             "email": "me@tintnaingwin.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "illuminate/support": "^5.0"
+        "php": ">=5.5.6",
+        "illuminate/support": "^5.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "~3.2|~3.3|~3.4",
+        "phpunit/phpunit": "^4.8|^5.7"
     },
     "autoload": {
         "psr-4": {
             "Tintnaingwin\\MyanFont\\" : "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tintnaingwin\\MyanFont\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true
 }
