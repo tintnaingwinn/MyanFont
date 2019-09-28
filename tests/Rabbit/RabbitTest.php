@@ -3,32 +3,23 @@
 namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
 use Rabbit;
-use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
+use Tintnaingwin\MyanFont\Tests\TestCase;
 
-class RabbitTest extends AbstractTestCase
+class RabbitTest extends TestCase
 {
-    /**
-     * @test
-     * @throws \Exception
-     */
+    /** @test */
     public function convert_zg2uni()
     {
         $this->assertSame($this->unicodeData(), Rabbit::zg2uni($this->zawgyiData()));
     }
 
-    /**
-     * @test
-     * @throws \Exception
-     */
+    /** @test */
     public function convert_uni2zg()
     {
         $this->assertSame($this->zawgyiData(), Rabbit::uni2zg($this->unicodeData()));
     }
 
-    /**
-     * @test
-     * @throws \Exception
-     */
+    /** @test */
     public function parseline()
     {
         $string = $this->unicodeData();

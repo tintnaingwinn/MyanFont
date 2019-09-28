@@ -8,26 +8,26 @@ use Googlei18n\MyanmarTools\ZawgyiDetector;
 
 class MyanFont
 {
+    const ZAWGYI = 'zawgyi';
+
+    const UNICODE = 'unicode';
+
     /**
-     * Convert zawgyi text to unicode.
+     * Convert text zawgyi to unicode.
      *
-     * @param $text
-     *
-     * @throws \Exception
-     *
+     * @param string $text
+     * @param bool $myanmar_tools
      * @return string
-     *
-     * @author TintNaingWin
      */
-    public static function zg2uni($text, $myanmar_tools = false)
+    public function zg2uni($text, $myanmar_tools = false)
     {
-        if (is_null($text) || $text === '') {
+        if ($this->isEmptyString($text)) {
             return '';
         }
 
-        $font = self::isZgOrUni($text, $myanmar_tools);
+        $font = $this->isZgOrUni($text, $myanmar_tools);
 
-        if ($font === 'zawgyi') {
+        if ($font === self::ZAWGYI) {
             return Rabbit::zg2uni($text);
         }
 
@@ -35,25 +35,21 @@ class MyanFont
     }
 
     /**
-     * Convert unicode text to zawgyi.
+     * Convert text unicode to zawgyi.
      *
-     * @param $text
-     *
-     * @throws \Exception
-     *
+     * @param string $text
+     * @param bool $myanmar_tools
      * @return string
-     *
-     * @author TintNaingWin
      */
-    public static function uni2zg($text, $myanmar_tools = false)
+    public function uni2zg($text, $myanmar_tools = false)
     {
-        if (is_null($text) || $text === '') {
+        if ($this->isEmptyString($text)) {
             return '';
         }
 
-        $font = self::isZgOrUni($text, $myanmar_tools);
+        $font = $this->isZgOrUni($text, $myanmar_tools);
 
-        if ($font === 'unicode') {
+        if ($font === self::UNICODE) {
             return Rabbit::uni2zg($text);
         }
 
@@ -61,19 +57,17 @@ class MyanFont
     }
 
     /**
-     * @param $text
+     * Determine the font zawgyi or unicode.
      *
-     * @throws Exception
-     *
+     * @param string $text
+     * @param bool $myanmar_tools
      * @return string
-     *
-     * @author TintNaingWin
      */
-    public static function isZgOrUni($text, $myanmar_tools = false)
+    public function isZgOrUni($text, $myanmar_tools = false)
     {
         $myanmar_tools = $myanmar_tools ?: config('myanfont.myanmar_tools.enabled');
 
-        if (is_null($text) || $text === '') {
+        if ($this->isEmptyString($text)) {
             return 'unicode';
         }
 
@@ -83,35 +77,44 @@ class MyanFont
 
         $zgPattern = "/[\x{105a}\x{1060}-\x{1097}]|[\x{1033}\x{1034}]|\x{1031}\x{108f}|\x{1031}[\x{103b}-\x{103e}]|[\x{102b}-\x{1030}\x{1032}]\x{1031}| \x{1031}| \x{103b}|^\x{1031}|^\x{103b}|\x{1038}\x{103b}|\x{1038}\x{1031}|[\x{102d}\x{102e}\x{1032}]\x{103b}|\x{1039}[^\x{1000}-\x{1021}]|\x{1039}$|\x{1004}\x{1039}[\x{1001}-\x{102a}\x{103f}\x{104e}]|\x{1039}[^u1000}-\x{102a}\x{103f}\x{104e}]|\x{103c}\x{103b}|\x{103d}\x{103b}|\x{103e}\x{103b}|\x{103d}\x{103c}|\x{103e}\x{103c}|\x{103e}\x{103d}|\x{103b}\x{103c}|[\x{102f}\x{1030}\x{102b}\x{102c}][\x{102d}\x{102e}\x{1032}]|[\x{102b}\x{102c}][\x{102f}\x{102c}]|[\x{1040}-\x{1049}][\x{102b}-\x{103e}\x{102b}-\x{1030}\x{1032}\x{1036}\x{1037}\x{1038}\x{103a}]|^[\x{1040}\x{1047}][^\x{1040}-\x{1049}]|[\x{1000}-\x{102a}\x{103f}\x{104e}]\x{1039}[\x{101a}\x{101b}\x{101d}\x{101f}\x{1022}-\x{103f}]|\x{103a}\x{103e}|\x{1036}\x{102b}]|\x{102d}[\x{102e}\x{1032}]|\x{102e}[\x{102d}\x{1032}]|\x{1032}[\x{102d}\x{102e}]|\x{102f}\x{1030}|\x{1030}\x{102f}|\x{102b}\x{102c}|\x{102c}\x{102b}|[\x{1090}-\x{1099}][\x{102b}-\x{1030}\x{1032}\x{1037}\x{103a}-\x{103e}]|[\x{1000}-\x{10f4}][\x{1090}-\x{1099}][\x{1000}-\x{104f}]|^[\x{1090}-\x{1099}][\x{1000}-\x{102a}\x{103f}\x{104e}\x{104a}\x{104b}]|[\x{1000}-\x{104f}][\x{1090}-\x{1099}]$|[\x{105e}-\x{1060}\x{1062}-\x{1064}\x{1067}-\x{106d}\x{1071}-\x{1074}\x{1082}-\x{108d}\x{108f}\x{109a}-\x{109d}][\x{102b}-\x{103e}]|[\x{1000}-\x{102a}]\x{103a}[\x{102d}\x{102e}\x{1032}]|[\x{102b}-\x{1030}\x{1032}\x{1036}-\x{1038}\x{103a}]\x{1031}|[\x{1087}-\x{108d}][\x{106e}-\x{1070}\x{1072}-\x{1074}]|^[\x{105e}-\x{1060}\x{1062}-\x{1064}\x{1067}-\x{106d}\x{1071}-\x{1074}\x{1082}-\x{108d}\x{108f}\x{109a}-\x{109d}]|[\x{0020}\x{104a}\x{104b}][\x{105e}-\x{1060}\x{1062}-\x{1064}\x{1067}-\x{106d}\x{1071}-\x{1074}\x{1082}-\x{108d}\x{108f}\x{109a}-\x{109d}]|[\x{1036}\x{103a}][\x{102d}-\x{1030}\x{1032}]|[\x{1025}\x{100a}]\x{1039}|[\x{108e}-\x{108f}][\x{1050}-\x{108d}]|\x{102d}-\x{1030}\x{1032}\x{1036}-\x{1037}]\x{1039}]|[\x{1000}-\x{102a}\x{103f}\x{104e}]\x{1037}\x{1039}|[\x{1000}-\x{102a}\x{103f}\x{104e}]\x{102c}\x{1039}[\x{1000}-\x{102a}\x{103f}\x{104e}]|[\x{102b}-\x{1030}\x{1032}][\x{103b}-\x{103e}]|\x{1032}[\x{103b}-\x{103e}]|\x{101b}\x{103c}|[\x{1000}-\x{102a}\x{103f}\x{104e}]\x{1039}[\x{1000}-\x{102a}\x{103f}\x{104e}]\x{1039}[\x{1000}-\x{102a}\x{103f}\x{104e}]|[\x{1000}-\x{102a}\x{103f}\x{104e}]\x{1039}[\x{1000}-\x{102a}\x{103f}\x{104e}][\x{102b}\x{1032}\x{103d}]|[\x{1000}\x{1005}\x{100f}\x{1010}\x{1012}\x{1014}\x{1015}\x{1019}\x{101a}]\x{1039}\x{1021}|[\x{1000}\x{1010}]\x{1039}\x{1019}|\x{1004}\x{1039}\x{1000}|\x{1015}\x{1039}[\x{101a}\x{101e}]|\x{1000}\x{1039}\x{1001}\x{1036}|\x{1039}\x{1011}\x{1032}|\x{1037}\x{1032}|\x{1036}\x{103b}|\x{102f}\x{102f}/u";
 
-        return preg_match($zgPattern, $text) ? 'zawgyi' : 'unicode';
+        return preg_match($zgPattern, $text) ? self::ZAWGYI : self::UNICODE;
     }
 
     /**
-     * * Check Zawgyi Font or Unicode Font
+     * Determine if the text is empty.
+     *
+     * @param string $text
+     * @return bool
+     */
+    protected function isEmptyString($text)
+    {
+        return is_null($text) || $text === '';
+    }
+
+    /**
+     * Check Zawgyi Font or Unicode Font
      * Score is 1.0 (The input is definitely Zawgyi)
      * Score is 0.0 (The input is definitely Unicode).
      *
-     * @param $text
+     * @param string $text
      * @return string
-     * @throws \Exception
-     *
-     * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
-    protected static function checkFontWithMyanmarTool($text)
+    protected function checkFontWithMyanmarTool($text)
     {
         $zawgyi_score = config('myanfont.myanmar_tools.zawgyi_score');
 
-        $detector = new ZawgyiDetector();
+        try {
+            $detector = new ZawgyiDetector();
+        } catch (Exception $e) {
+            report($e);
+        }
+
         $score = $detector->getZawgyiProbability($text);
 
         if (is_infinite($score)) {
-            return 'unicode';
+            return self::UNICODE;
         }
 
-        if ($score > $zawgyi_score) {
-            return 'zawgyi';
-        } else {
-            return 'unicode';
-        }
+        return $score > $zawgyi_score ? self::ZAWGYI : self::UNICODE;
     }
 }

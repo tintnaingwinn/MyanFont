@@ -22,17 +22,9 @@ class MyanFontServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/myanfont.php', 'myanfont');
-    }
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return string[]
-     */
-    public function provides()
-    {
-        return [
-            'Tintnaingwin\MyanFont\MyanFont',
-        ];
+        $this->app->singleton('myanfont', function ($app) {
+            return new MyanFont();
+        });
     }
 }

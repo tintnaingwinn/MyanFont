@@ -1,18 +1,13 @@
 <?php
 
-use Tintnaingwin\MyanFont\MyanFont;
+use Tintnaingwin\MyanFont\Facades\MyanFont;
 
 if (! function_exists('zg2uni')) {
     /**
-     * Convert zawgyi text to unicode.
+     * Convert text zawgyi to unicode.
      *
      * @param string $text
-     *
-     * @throws \Exception
-     *
      * @return string
-     *
-     * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
     function zg2uni($text = '', $myanmar_tools = null)
     {
@@ -22,15 +17,10 @@ if (! function_exists('zg2uni')) {
 
 if (! function_exists('uni2zg')) {
     /**
-     * Convert unicode text to zawgyi.
+     * Convert text unicode to zawgyi.
      *
      * @param string $text
-     *
-     * @throws \Exception
-     *
      * @return string
-     *
-     * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
     function uni2zg($text = '', $myanmar_tools = null)
     {
@@ -40,15 +30,10 @@ if (! function_exists('uni2zg')) {
 
 if (! function_exists('isZgOrUni')) {
     /**
-     * Check Zawgyi Font or Unicode Font.
+     * Determine the font zawgyi or unicode.
      *
      * @param string $text
-     *
-     * @throws \Exception
-     *
      * @return string
-     *
-     * @author Tint Naing Win <tnwdeveloper@gmail.com>
      */
     function isZgOrUni($text = '', $myanmartools = null)
     {
