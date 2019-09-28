@@ -4,8 +4,8 @@ namespace Tintnaingwin\MyanFont\Tests;
 
 use ReflectionClass;
 use ReflectionException;
-use Tintnaingwin\MyanFont\MyanFontServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Tintnaingwin\MyanFont\MyanFontServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -35,14 +35,12 @@ abstract class TestCase extends Orchestra
     public function getPrivateMethod($className, $methodName)
     {
         try {
-
             $reflector = new ReflectionClass($className);
             $method = $reflector->getMethod($methodName);
             $method->setAccessible(true);
 
             return $method;
         } catch (ReflectionException $e) {
-
         }
     }
 }
