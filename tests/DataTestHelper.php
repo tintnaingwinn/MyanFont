@@ -1,6 +1,6 @@
 <?php
 
-namespace test;
+namespace Tintnaingwin\MyanFont\Tests;
 
 trait DataTestHelper
 {

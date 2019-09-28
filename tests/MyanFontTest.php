@@ -1,23 +1,15 @@
 <?php
 
-namespace test;
+namespace Tintnaingwin\MyanFont\Tests;
 
-use Tintnaingwin\MyanFont\MyanFont;
+use Tintnaingwin\MyanFont\Facades\MyanFont;
 
-class MyanFontTest extends \PHPUnit\Framework\TestCase
+class MyanFontTest extends TestCase
 {
     use DataTestHelper;
 
-    const
-        ZAWGYI = 'ZawGyi',
-        UNICODE = 'Unicode',
-        MYANMAR = 'Myanmar';
-
-    /**
-     * @throws \Exception
-     *
-     */
-    public function test_check_font()
+    /** @test */
+    public function check_font()
     {
         $font = MyanFont::checkFont($this->zawgyiData());
         $this->assertEquals($font, self::ZAWGYI);
@@ -26,11 +18,8 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($font, self::UNICODE);
     }
 
-    /**
-     * @throws \Exception
-     *
-     */
-    public function test_english_text()
+    /** @test */
+    public function english_text()
     {
         $font = MyanFont::checkFont($this->englishUnicodeData());
         $this->assertEquals($font, self::UNICODE);
@@ -39,33 +28,24 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($font, self::ZAWGYI);
     }
 
-    /**
-     * @throws \Exception
-     *
-     */
-    public function test_convert_zg2uni()
+    /** @test */
+    public function convert_zg2uni()
     {
         $convert = MyanFont::zg2uni($this->zawgyiData());
         $font = MyanFont::checkFont($convert);
         $this->assertEquals($font, self::UNICODE);
     }
 
-    /**
-     * @throws \Exception
-     *
-     */
-    public function test_convert_uni2zg()
+    /** @test */
+    public function convert_uni2zg()
     {
         $convert = MyanFont::uni2zg($this->unicodeData());
         $font = MyanFont::checkFont($convert);
         $this->assertEquals($font, self::ZAWGYI);
     }
 
-    /**
-     * @throws \Exception
-     *
-     */
-    public function test_null_convert()
+    /** @test */
+    public function null_convert()
     {
         $zg = MyanFont::uni2zg(null);
         $this->assertNotNull($zg);
@@ -78,5 +58,3 @@ class MyanFontTest extends \PHPUnit\Framework\TestCase
     }
 
 }
-
-?>
