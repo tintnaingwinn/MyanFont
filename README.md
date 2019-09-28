@@ -138,7 +138,7 @@ isZgOrUni('ခ်ယ္ရီ'); // output - zawgyi
 You can run the tests with:
 
 ```bash
-vendor/bin/phpunit
+composer test
 ```
 
 ## Credits

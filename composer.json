@@ -13,7 +13,7 @@
   "authors": [
     {
       "name": "Tint Naing Win",
-      "email": "tnwdeveloper@gmail.com"
+      "email": "amigo.k8@gmail.com"
     }
   ],
   "require": {
@@ -24,8 +24,8 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "graham-campbell/testbench": "^5.2",
-    "orchestra/testbench": "^3.7",
+    "mockery/mockery": "^1.0",
+    "orchestra/testbench": "^3.6",
     "phpunit/phpunit": "^7.5"
   },
   "autoload": {
@@ -42,8 +42,8 @@
       "Tintnaingwin\\MyanFont\\Tests\\": "tests"
     }
   },
-  "config": {
-    "sort-packages": true
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   },
   "extra": {
     "laravel": {
@@ -54,5 +54,9 @@
         "MyanFont": "Tintnaingwin\\MyanFont\\Facades\\MyanFont"
       }
     }
-  }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "prefer-stable": true
 }

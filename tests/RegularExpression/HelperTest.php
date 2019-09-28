@@ -2,15 +2,12 @@
 
 namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
-use Tintnaingwin\MyanFont\Tests\AbstractTestCase;
+use Tintnaingwin\MyanFont\Tests\TestCase;
 
-class HelperTest extends AbstractTestCase
+class HelperTest extends TestCase
 {
-    /**
-     * @test
-     * @throws \Exception
-     */
-    public function test_check_font()
+    /** @test */
+    public function check_font()
     {
         $font = isZgOrUni($this->zawgyiData());
         $this->assertEquals($font, self::ZAWGYI);
@@ -19,10 +16,7 @@ class HelperTest extends AbstractTestCase
         $this->assertEquals($font, self::UNICODE);
     }
 
-    /**
-     * @test
-     * @throws \Exception
-     */
+    /** @test */
     public function english_text()
     {
         $font = isZgOrUni($this->englishUnicodeData());
@@ -32,30 +26,24 @@ class HelperTest extends AbstractTestCase
         $this->assertEquals($font, self::ZAWGYI);
     }
 
-    /**
-     * @throws \Exception
-     */
-    public function test_convert_zg2uni()
+    /** @test */
+    public function convert_zg2uni()
     {
         $convert = zg2uni($this->zawgyiData());
         $font = isZgOrUni($convert);
         $this->assertEquals($font, self::UNICODE);
     }
 
-    /**
-     * @throws \Exception
-     */
-    public function test_convert_uni2zg()
+    /** @test */
+    public function convert_uni2zg()
     {
         $convert = uni2zg($this->unicodeData());
         $font = isZgOrUni($convert);
         $this->assertEquals($font, self::ZAWGYI);
     }
 
-    /**
-     * @throws \Exception
-     */
-    public function test_null_convert()
+    /** @test */
+    public function null_convert()
     {
         $zg = uni2zg(null);
         $this->assertNotNull($zg);
