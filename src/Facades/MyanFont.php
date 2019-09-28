@@ -1,4 +1,5 @@
 <?php
+
 namespace Tintnaingwin\MyanFont\Facades;
 
 use Illuminate\Support\Facades\Facade;
