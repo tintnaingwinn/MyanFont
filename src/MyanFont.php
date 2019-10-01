@@ -20,7 +20,7 @@ class MyanFont
     public static function zg2uni($text = '')
     {
         if (self::isEmptyString($text)) {
-            return '';
+            return $text;
         }
 
         $font = self::ZgOrUni($text);
@@ -44,7 +44,7 @@ class MyanFont
     public static function uni2zg($text)
     {
         if (self::isEmptyString($text)) {
-            return '';
+            return $text;
         }
 
         $font = self::ZgOrUni($text);
