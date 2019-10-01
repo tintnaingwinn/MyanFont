@@ -22,7 +22,7 @@ class MyanFont
     public function zg2uni($text, $myanmar_tools = false)
     {
         if ($this->isEmptyString($text)) {
-            return '';
+            return $text;
         }
 
         $font = $this->isZgOrUni($text, $myanmar_tools);
@@ -44,7 +44,7 @@ class MyanFont
     public function uni2zg($text, $myanmar_tools = false)
     {
         if ($this->isEmptyString($text)) {
-            return '';
+            return $text;
         }
 
         $font = $this->isZgOrUni($text, $myanmar_tools);
@@ -68,7 +68,7 @@ class MyanFont
         $myanmar_tools = $myanmar_tools ?: config('myanfont.myanmar_tools.enabled');
 
         if ($this->isEmptyString($text)) {
-            return 'unicode';
+            return self::UNICODE;
         }
 
         if ($myanmar_tools) {

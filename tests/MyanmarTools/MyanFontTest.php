@@ -50,13 +50,26 @@ class MyanFontTest extends TestCase
     public function null_convert()
     {
         $zg = MyanFont::uni2zg(null, true);
-        $this->assertNotNull($zg);
+        $this->assertNull($zg);
 
         $uni = MyanFont::zg2uni(null, true);
-        $this->assertNotNull($uni);
+        $this->assertNull($uni);
 
         $font = MyanFont::isZgOrUni(null, true);
-        $this->assertNotNull($font);
+        $this->assertEquals($font, self::UNICODE);
+    }
+
+    /** @test */
+    public function empty_string_convert()
+    {
+        $zg = MyanFont::uni2zg('', true);
+        $this->assertEmpty($zg);
+
+        $uni = MyanFont::zg2uni('', true);
+        $this->assertEmpty($uni);
+
+        $font = MyanFont::isZgOrUni('', true);
+        $this->assertEquals($font, self::UNICODE);
     }
 
     /** @test */

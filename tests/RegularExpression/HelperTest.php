@@ -46,12 +46,25 @@ class HelperTest extends TestCase
     public function null_convert()
     {
         $zg = uni2zg(null);
-        $this->assertNotNull($zg);
+        $this->assertNull($zg);
 
         $uni = zg2uni(null);
-        $this->assertNotNull($uni);
+        $this->assertNull($uni);
 
         $font = isZgOrUni(null);
-        $this->assertNotNull($font);
+        $this->assertEquals($font, self::UNICODE);
+    }
+
+    /** @test */
+    public function empty_string_convert()
+    {
+        $zg = uni2zg('');
+        $this->assertEmpty($zg);
+
+        $uni = zg2uni('');
+        $this->assertEmpty($uni);
+
+        $font = isZgOrUni('');
+        $this->assertEquals($font, self::UNICODE);
     }
 }

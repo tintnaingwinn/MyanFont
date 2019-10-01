@@ -9,7 +9,7 @@ if (! function_exists('zg2uni')) {
      * @param string $text
      * @return string
      */
-    function zg2uni($text = '', $myanmar_tools = null)
+    function zg2uni($text = '', $myanmar_tools = false)
     {
         return MyanFont::zg2uni($text, $myanmar_tools);
     }
@@ -22,7 +22,7 @@ if (! function_exists('uni2zg')) {
      * @param string $text
      * @return string
      */
-    function uni2zg($text = '', $myanmar_tools = null)
+    function uni2zg($text = '', $myanmar_tools = false)
     {
         return MyanFont::uni2zg($text, $myanmar_tools);
     }
@@ -35,7 +35,7 @@ if (! function_exists('isZgOrUni')) {
      * @param string $text
      * @return string
      */
-    function isZgOrUni($text = '', $myanmartools = null)
+    function isZgOrUni($text = '', $myanmartools = false)
     {
         return MyanFont::isZgOrUni($text, $myanmartools);
     }
