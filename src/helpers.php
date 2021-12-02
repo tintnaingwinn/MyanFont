@@ -2,11 +2,12 @@
 
 use Tintnaingwin\MyanFont\Facades\MyanFont;
 
-if (! function_exists('zg2uni')) {
+if (!function_exists('zg2uni')) {
     /**
      * Convert text zawgyi to unicode.
      *
      * @param string $text
+     *
      * @return string
      */
     function zg2uni($text = '', $myanmar_tools = false)
@@ -15,11 +16,12 @@ if (! function_exists('zg2uni')) {
     }
 }
 
-if (! function_exists('uni2zg')) {
+if (!function_exists('uni2zg')) {
     /**
      * Convert text unicode to zawgyi.
      *
      * @param string $text
+     *
      * @return string
      */
     function uni2zg($text = '', $myanmar_tools = false)
@@ -28,11 +30,12 @@ if (! function_exists('uni2zg')) {
     }
 }
 
-if (! function_exists('isZgOrUni')) {
+if (!function_exists('isZgOrUni')) {
     /**
      * Determine the font zawgyi or unicode.
      *
      * @param string $text
+     *
      * @return string
      */
     function isZgOrUni($text = '', $myanmartools = false)

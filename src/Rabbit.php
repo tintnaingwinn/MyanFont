@@ -61,7 +61,7 @@ class Rabbit
     protected static function replaceWithRule($rule, $output)
     {
         foreach ($rule as $data) {
-            $from_json = $data["from"];
+            $from_json = $data['from'];
 
             //search line break.
             //if line break include , need to fix the line
@@ -69,8 +69,8 @@ class Rabbit
                 $from_json = self::parseline($from_json);
             }
 
-            $from = "~".json_decode('"'.$from_json.'"')."~u";
-            $to = json_decode('"'.$data["to"].'"');
+            $from = '~'.json_decode('"'.$from_json.'"').'~u';
+            $to = json_decode('"'.$data['to'].'"');
             $output = preg_replace($from, $to, $output);
         }
 
