@@ -10,7 +10,7 @@
 ## Requirements
 
 #### version-2.*
-- [PHP >= 7.1.3](http://php.net/)
+- [PHP >= 7.1.3 || ^8.0](http://php.net/)
 - [Laravel 5.6|5.7|5.8|6.x|7.x|8.x](https://github.com/laravel/framework)
 
 #### version-1.*
