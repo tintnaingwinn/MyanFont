@@ -2,8 +2,8 @@
 
 namespace Tintnaingwin\MyanFont\Tests\MyanmarTools;
 
-use Tintnaingwin\MyanFont\Tests\TestCase;
 use Tintnaingwin\MyanFont\Facades\MyanFont;
+use Tintnaingwin\MyanFont\Tests\TestCase;
 
 class MyanFontTest extends TestCase
 {

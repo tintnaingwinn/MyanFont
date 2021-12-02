@@ -2,9 +2,9 @@
 
 namespace Tintnaingwin\MyanFont;
 
-use Rabbit;
 use Exception;
 use Googlei18n\MyanmarTools\ZawgyiDetector;
+use Rabbit;
 
 class MyanFont
 {
@@ -16,7 +16,8 @@ class MyanFont
      * Convert text zawgyi to unicode.
      *
      * @param string $text
-     * @param bool $myanmar_tools
+     * @param bool   $myanmar_tools
+     *
      * @return string
      */
     public function zg2uni($text, $myanmar_tools = false)
@@ -38,7 +39,8 @@ class MyanFont
      * Convert text unicode to zawgyi.
      *
      * @param string $text
-     * @param bool $myanmar_tools
+     * @param bool   $myanmar_tools
+     *
      * @return string
      */
     public function uni2zg($text, $myanmar_tools = false)
@@ -60,7 +62,8 @@ class MyanFont
      * Determine the font zawgyi or unicode.
      *
      * @param string $text
-     * @param bool $myanmar_tools
+     * @param bool   $myanmar_tools
+     *
      * @return string
      */
     public function isZgOrUni($text, $myanmar_tools = false)
@@ -84,6 +87,7 @@ class MyanFont
      * Determine if the text is empty.
      *
      * @param string $text
+     *
      * @return bool
      */
     protected function isEmptyString($text)
@@ -97,6 +101,7 @@ class MyanFont
      * Score is 0.0 (The input is definitely Unicode).
      *
      * @param string $text
+     *
      * @return string
      */
     protected function checkFontWithMyanmarTool($text)

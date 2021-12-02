@@ -2,8 +2,8 @@
 
 namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
 
-use Tintnaingwin\MyanFont\Tests\TestCase;
 use Tintnaingwin\MyanFont\Facades\MyanFont;
+use Tintnaingwin\MyanFont\Tests\TestCase;
 
 class MyanFontTest extends TestCase
 {
