@@ -46,13 +46,14 @@ class Rabbit
     {
         $string = str_replace(chr(10), '\\n', $string);
         $string = str_replace(chr(13), '\\n', $string);
+
         return str_replace("\f", '\\f', $string);
     }
 
     /**
      * Replace the string with rules.
      *
-     * @param array $rule
+     * @param array  $rule
      * @param string $output
      *
      * @return string
@@ -60,7 +61,7 @@ class Rabbit
     protected static function replaceWithRule(array $rule, string $output): string
     {
         foreach ($rule as $data) {
-            $from_json = $data["from"];
+            $from_json = $data['from'];
 
             //search line break.
             //if line break include , need to fix the line
@@ -68,8 +69,8 @@ class Rabbit
                 $from_json = self::parseline($from_json);
             }
 
-            $from = "~".json_decode('"'.$from_json.'"')."~u";
-            $to = json_decode('"'.$data["to"].'"');
+            $from = '~'.json_decode('"'.$from_json.'"').'~u';
+            $to = json_decode('"'.$data['to'].'"');
             $output = preg_replace($from, $to, $output);
         }
 
