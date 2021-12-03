@@ -1,6 +1,6 @@
 <?php
 
-it("check the font", function () {
+it('check the font', function () {
     $font = isZgOrUni($this->zawgyiData());
     $this->assertEquals(self::ZAWGYI, $font);
 

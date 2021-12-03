@@ -12,6 +12,7 @@ class MyanFont
      * Convert text zawgyi to unicode.
      *
      * @param string|null $text
+     *
      * @return string|null
      */
     public function zg2uni(?string $text): ?string
@@ -31,6 +32,7 @@ class MyanFont
      * Convert text unicode to zawgyi.
      *
      * @param string|null $text
+     *
      * @return string|null
      */
     public function uni2zg(?string $text): ?string
@@ -50,6 +52,7 @@ class MyanFont
      * Determine the font zawgyi or unicode.
      *
      * @param string|null $text
+     *
      * @return string
      */
     public function isZgOrUni(?string $text): string
@@ -67,6 +70,7 @@ class MyanFont
      * Check the font unicode or not.
      *
      * @param string|null $text
+     *
      * @return bool
      */
     public function isUnicode(?string $text): bool
@@ -78,6 +82,7 @@ class MyanFont
      * Check the font zawgyi or not.
      *
      * @param string|null $text
+     *
      * @return bool
      */
     public function isZawgyi(?string $text): bool
@@ -89,6 +94,7 @@ class MyanFont
      * Determine if the text is empty.
      *
      * @param string|null $text
+     *
      * @return bool
      */
     protected function isEmptyString(?string $text): bool
