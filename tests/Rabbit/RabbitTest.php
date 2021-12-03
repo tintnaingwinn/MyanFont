@@ -1,33 +1,33 @@
 <?php
 
-namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
+use Tintnaingwin\MyanFont\Rabbit;
 
-use Rabbit;
-use Tintnaingwin\MyanFont\Tests\TestCase;
+it('convert zawgyi to unicode', function () {
+    $this->assertSame($this->unicodeData(), Rabbit::zg2uni($this->zawgyiData()));
+});
 
-class RabbitTest extends TestCase
+it('convert unicode to zawgyi', function () {
+    $this->assertSame($this->zawgyiData(), Rabbit::uni2zg($this->unicodeData()));
+});
+
+it('parse line', function () {
+    $string = $this->unicodeData();
+    $object = new Rabbit();
+    $method = getPrivateMethod('Tintnaingwin\MyanFont\Rabbit', 'parseline');
+
+    $result = $method->invokeArgs($object, [$string]);
+
+    $this->assertFalse(strpos($result, chr(13)));
+});
+
+function getPrivateMethod($className, $methodName)
 {
-    /** @test */
-    public function convert_zg2uni()
-    {
-        $this->assertSame($this->unicodeData(), Rabbit::zg2uni($this->zawgyiData()));
-    }
+    try {
+        $reflector = new ReflectionClass($className);
+        $method = $reflector->getMethod($methodName);
+        $method->setAccessible(true);
 
-    /** @test */
-    public function convert_uni2zg()
-    {
-        $this->assertSame($this->zawgyiData(), Rabbit::uni2zg($this->unicodeData()));
-    }
-
-    /** @test */
-    public function parseline()
-    {
-        $string = $this->unicodeData();
-        $object = new Rabbit();
-        $method = $this->getPrivateMethod('Rabbit', 'parseline');
-
-        $result = $method->invokeArgs($object, [$string]);
-
-        $this->assertFalse(strpos($result, chr(13)));
+        return $method;
+    } catch (ReflectionException $e) {
     }
 }
