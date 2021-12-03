@@ -5,9 +5,11 @@ namespace Tintnaingwin\MyanFont\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method string zg2uni(string $text = '', bool $myanmar_tools = false)
- * @method string uni2zg(string $text = '', bool $myanmar_tools = false)
- * @method string isZgOrUni(string $text = '', bool $myanmar_tools = false)
+ * @method string zg2uni(?string $text = '')
+ * @method string uni2zg(?string $text = '')
+ * @method string isZgOrUni(?string $text = '')
+ * @method string isUnicode(?string $text = '')
+ * @method string isZawgyi(?string $text = '')
  *
  * @see \Tintnaingwin\MyanFont\MyanFont
  */
@@ -18,7 +20,7 @@ class MyanFont extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'myanfont';
     }

@@ -2,8 +2,6 @@
 
 namespace Tintnaingwin\MyanFont\Tests;
 
-use ReflectionClass;
-use ReflectionException;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Tintnaingwin\MyanFont\MyanFontServiceProvider;
 
@@ -15,32 +13,15 @@ abstract class TestCase extends Orchestra
 
     const UNICODE = 'unicode';
 
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
-
     /**
      * @param \Illuminate\Foundation\Application $app
      *
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             MyanFontServiceProvider::class,
         ];
-    }
-
-    public function getPrivateMethod($className, $methodName)
-    {
-        try {
-            $reflector = new ReflectionClass($className);
-            $method = $reflector->getMethod($methodName);
-            $method->setAccessible(true);
-
-            return $method;
-        } catch (ReflectionException $e) {
-        }
     }
 }

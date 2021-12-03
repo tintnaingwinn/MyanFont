@@ -1,70 +1,63 @@
 <?php
 
-namespace Tintnaingwin\MyanFont\Tests\RegularExpression;
+it("check the font", function () {
+    $font = isZgOrUni($this->zawgyiData());
+    $this->assertEquals(self::ZAWGYI, $font);
 
-use Tintnaingwin\MyanFont\Tests\TestCase;
+    $font = isZgOrUni($this->unicodeData());
+    $this->assertEquals(self::UNICODE, $font);
 
-class HelperTest extends TestCase
-{
-    /** @test */
-    public function check_font()
-    {
-        $font = isZgOrUni($this->zawgyiData());
-        $this->assertEquals($font, self::ZAWGYI);
+    $isZawgyi = isZawgyi($this->zawgyiData());
+    $this->assertTrue($isZawgyi);
 
-        $font = isZgOrUni($this->unicodeData());
-        $this->assertEquals($font, self::UNICODE);
-    }
+    $isZawgyi = isZawgyi($this->unicodeData());
+    $this->assertFalse($isZawgyi);
 
-    /** @test */
-    public function english_text()
-    {
-        $font = isZgOrUni($this->englishUnicodeData());
-        $this->assertEquals($font, self::UNICODE);
+    $isUnicode = isUnicode($this->unicodeData());
+    $this->assertTrue($isUnicode);
 
-        $font = isZgOrUni($this->englishZawgyiData());
-        $this->assertEquals($font, self::ZAWGYI);
-    }
+    $isUnicode = isUnicode($this->zawgyiData());
+    $this->assertFalse($isUnicode);
+});
 
-    /** @test */
-    public function convert_zg2uni()
-    {
-        $convert = zg2uni($this->zawgyiData());
-        $font = isZgOrUni($convert);
-        $this->assertEquals($font, self::UNICODE);
-    }
+it('convert english text', function () {
+    $font = isZgOrUni($this->englishUnicodeData());
+    $this->assertEquals(self::UNICODE, $font);
 
-    /** @test */
-    public function convert_uni2zg()
-    {
-        $convert = uni2zg($this->unicodeData());
-        $font = isZgOrUni($convert);
-        $this->assertEquals($font, self::ZAWGYI);
-    }
+    $font = isZgOrUni($this->englishZawgyiData());
+    $this->assertEquals(self::ZAWGYI, $font);
+});
 
-    /** @test */
-    public function null_convert()
-    {
-        $zg = uni2zg(null);
-        $this->assertNull($zg);
+it('convert zawgyi to unicode', function () {
+    $convert = zg2uni($this->zawgyiData());
+    $font = isZgOrUni($convert);
+    $this->assertEquals(self::UNICODE, $font);
+});
 
-        $uni = zg2uni(null);
-        $this->assertNull($uni);
+it('convert unicode to zawgyi', function () {
+    $convert = uni2zg($this->unicodeData());
+    $font = isZgOrUni($convert);
+    $this->assertEquals(self::ZAWGYI, $font);
+});
 
-        $font = isZgOrUni(null);
-        $this->assertEquals($font, self::UNICODE);
-    }
+it('convert null', function () {
+    $zg = uni2zg(null);
+    $this->assertNull($zg);
 
-    /** @test */
-    public function empty_string_convert()
-    {
-        $zg = uni2zg('');
-        $this->assertEmpty($zg);
+    $uni = zg2uni(null);
+    $this->assertNull($uni);
 
-        $uni = zg2uni('');
-        $this->assertEmpty($uni);
+    $font = isZgOrUni(null);
+    $this->assertEquals(self::UNICODE, $font);
+});
 
-        $font = isZgOrUni('');
-        $this->assertEquals($font, self::UNICODE);
-    }
-}
+it('convert empty text', function () {
+    $zg = uni2zg('');
+    $this->assertEmpty($zg);
+
+    $uni = zg2uni('');
+    $this->assertEmpty($uni);
+
+    $font = isZgOrUni('');
+    $this->assertEquals(self::UNICODE, $font);
+});
