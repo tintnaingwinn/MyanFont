@@ -2,7 +2,7 @@
 
 use Tintnaingwin\MyanFont\Facades\MyanFont;
 
-it("check the font", function () {
+it('check the font', function () {
     $font = MyanFont::isZgOrUni($this->zawgyiData());
     $this->assertEquals(self::ZAWGYI, $font);
 
