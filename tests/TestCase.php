@@ -14,9 +14,7 @@ abstract class TestCase extends Orchestra
     const UNICODE = 'unicode';
 
     /**
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return array
+     * @param  \Illuminate\Foundation\Application  $app
      */
     protected function getPackageProviders($app): array
     {

@@ -1,17 +1,16 @@
 <h1 align="center">Laravel Zawgyi <=> Unicode Package</h1>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tintnaingwin/myanfont.svg?style=flat-square)](https://packagist.org/packages/tintnaingwin/myanfont)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/tintnaingwin/myanfont?style=flat-square)](https://packagist.org/packages/tintnaingwin/myanfont)
-[![Laravel 8.x](https://img.shields.io/badge/Laravel-8.x-red.svg?style=flat-square)](http://laravel.com)
-[![Laravel 9.x](https://img.shields.io/badge/Laravel-9.x-red.svg?style=flat-square)](http://laravel.com)
+[![Laravel 9.x](https://img.shields.io/badge/Laravel-9.x-red.svg?style=flat-square)](http://laravel.com/docs/9.x)
+[![Laravel 10.x](https://img.shields.io/badge/Laravel-10.x-red.svg?style=flat-square)](http://laravel.com/docs/10.x)
 [![Total Downloads](https://img.shields.io/packagist/dt/tintnaingwin/myanfont.svg?style=flat-square)](https://packagist.org/packages/tintnaingwin/myanfont)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://packagist.org/packages/tintnaingwin/myanfont)
 
 ## Requirements
 
 #### version-3.*
-- [PHP ^7.4|^8.0|^8.1](http://php.net/)
-- [Laravel 8.x|9.x](https://github.com/laravel/framework)
+- [PHP ^8.0|^8.1|^8.2](http://php.net/)
+- [Laravel 8.x|9.x|^10.x](https://github.com/laravel/framework)
 
 #### version-2.*
 - [PHP ^7.1.3|^8.0](http://php.net/)

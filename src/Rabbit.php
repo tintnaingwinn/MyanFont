@@ -9,10 +9,6 @@ class Rabbit
 {
     /**
      * Convert unicode string to zawgyi.
-     *
-     * @param string $unicode
-     *
-     * @return string
      */
     public static function uni2zg(string $unicode): string
     {
@@ -23,10 +19,6 @@ class Rabbit
 
     /**
      * Convert zawgyi string to unicode.
-     *
-     * @param string $zawgyi
-     *
-     * @return string
      */
     public static function zg2uni(string $zawgyi): string
     {
@@ -37,10 +29,6 @@ class Rabbit
 
     /**
      * Replace the line break to character to parse the data correctly.
-     *
-     * @param string $string
-     *
-     * @return string
      */
     private static function parseline(string $string): string
     {
@@ -52,11 +40,6 @@ class Rabbit
 
     /**
      * Replace the string with rules.
-     *
-     * @param array  $rule
-     * @param string $output
-     *
-     * @return string
      */
     protected static function replaceWithRule(array $rule, string $output): string
     {
