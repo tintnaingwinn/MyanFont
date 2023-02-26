@@ -4,9 +4,9 @@ namespace Tintnaingwin\MyanFont;
 
 class MyanFont
 {
-    const ZAWGYI = 'zawgyi';
+    public const ZAWGYI = 'zawgyi';
 
-    const UNICODE = 'unicode';
+    public const UNICODE = 'unicode';
 
     /**
      * Convert text zawgyi to unicode.

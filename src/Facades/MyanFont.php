@@ -5,11 +5,11 @@ namespace Tintnaingwin\MyanFont\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method string zg2uni(?string $text = '')
- * @method string uni2zg(?string $text = '')
- * @method string isZgOrUni(?string $text = '')
- * @method string isUnicode(?string $text = '')
- * @method string isZawgyi(?string $text = '')
+ * @method static null|string zg2uni(?string $text = '')
+ * @method static null|string uni2zg(?string $text = '')
+ * @method static string isZgOrUni(?string $text = '')
+ * @method static bool isUnicode(?string $text = '')
+ * @method static bool isZawgyi(?string $text = '')
  *
  * @see \Tintnaingwin\MyanFont\MyanFont
  */
