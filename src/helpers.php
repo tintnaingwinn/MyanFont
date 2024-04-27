@@ -48,6 +48,6 @@ if (! function_exists('isZawgyi')) {
      */
     function isZawgyi(string $text = ''): bool
     {
-        return MyanFont::isZawGyi($text);
+        return MyanFont::isZawgyi($text);
     }
 }
