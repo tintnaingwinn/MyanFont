@@ -1,21 +1,35 @@
-name: Fix PHP code style issues
+name: Check & fix styling
 
 on: [push]
 
 jobs:
     php-code-styling:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
+
+        strategy:
+            fail-fast: true
 
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v3
-              with:
-                  ref: ${{ github.head_ref }}
+            - name: Check out repository code
+              uses: actions/checkout@v4
 
-            - name: Fix PHP code style issues
-              uses: aglipanci/laravel-pint-action@2.1.0
-
-            - name: Commit changes
-              uses: stefanzweifel/git-auto-commit-action@v4
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
               with:
-                  commit_message: Fix styling
+                  php-version: 8.2
+                  tools: composer:v2
+                  coverage: none
+
+            - name: Composer & GitHub Authentication
+              run: composer config github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Install composer dependencies
+              uses: nick-fields/retry@v3
+              with:
+                  timeout_minutes: 3
+                  max_attempts: 5
+                  command: composer update --prefer-stable --prefer-dist --no-interaction --no-progress
+
+            - name: Check code style
+              timeout-minutes: 2
+              run: ./vendor/bin/pint --test --preset laravel
