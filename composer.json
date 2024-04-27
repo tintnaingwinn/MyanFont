@@ -19,13 +19,12 @@
     "require": {
         "php": "^8.2",
         "ext-json": "*",
-        "illuminate/contracts": "^11.0",
-        "illuminate/support": "^11.0"
+        "illuminate/contracts": "^11.0"
     },
     "require-dev": {
         "laravel/pint": "^1.6",
         "phpstan/phpstan": "^1.10",
-        "orchestra/testbench": "^8.0",
+        "orchestra/testbench": "^8.11|^9.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0"
     },
